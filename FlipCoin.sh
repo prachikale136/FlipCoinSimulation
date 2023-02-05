@@ -4,20 +4,32 @@ echo "this display the winner Heads or Tail"
 counter=0;
 totalHeads=0;
 totalTails=0;
-read -p "Enter how many times to flip the coin " flip
-while [ $counter -le $flip ]
+range=21;
+while [ $counter -le $range ]
 do
 	coin=$(($RANDOM%2))
 	if [ $coin -eq 1 ]
 	then
 		echo "HEADS IS WINNER"
-		((totalHeads++))
+		((counter++))
+		  totalHeads=$counter
 	else
 		echo "TAILS IS WINNER"
-		((totalTails++))
+		((counter++))
+		  totalTails=$counter
 	fi
-	((counter++))
 done
 
-echo "Head win :" $totalHeads
-echo "Tail win: " $totalTails
+if [ $totalHeads -eq $totalTails ]
+then
+	echo "it's a tie"
+elif [ $totalHeads -eq $counter ]
+then
+	diff=$(($totalHeads-$totalTails))
+	echo "head is winner by " $diff
+else
+	diff=$(($totalTails-$totalHeads))
+	echo "tail is winner by " $diff
+
+fi
+
