@@ -5,7 +5,7 @@ echo "this display the winner Heads or Tail"
 flip=$(($RANDOM%2))
 if [ $flip -eq 1 ]
 then
-	echo "HEADS"
+	echo "HEADS is winner"
 else
-	echo "TAILS"
+	echo "TAILS is winner"
 fi
